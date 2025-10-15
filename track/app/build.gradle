@@ -1,0 +1,46 @@
+plugins {
+    id 'java'
+    id 'application'
+}
+
+group = 'org.example'
+version = '1.0-SNAPSHOT'
+
+java {
+    toolchain {
+        languageVersion = JavaLanguageVersion.of(17) // adjust to your JDK
+    }
+}
+
+repositories {
+    mavenCentral() {
+        metadataSources {
+            mavenPom()
+            artifact()
+        }
+    }
+}
+
+
+dependencies {
+    // Use a stable, available version
+    implementation 'mysql:mysql-connector-java:8.0.33'
+
+    // Jackson for JSON parsing
+    implementation 'com.fasterxml.jackson.core:jackson-databind:2.16.2'
+}
+
+
+application {
+    // Correct main class
+    mainClass.set('org.example.Server')
+}
+
+dependencies {
+    // MySQL JDBC driver (stable version)
+    implementation 'mysql:mysql-connector-java:8.0.33'
+
+    // Jackson for JSON parsing
+    implementation 'com.fasterxml.jackson.core:jackson-databind:2.16.2'
+}
+
